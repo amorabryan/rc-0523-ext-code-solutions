@@ -1,0 +1,132 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hot-button {
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgb(70, 70, 70);
+  border-radius: 0.25rem;
+  position: relative;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  box-shadow: 3px 3px 3px black;
+}
+
+.hot-button:focus {
+  outline: none;
+}
+
+.hot-button:active {
+  top: 3px;
+}
+
+.hot-button.cold,
+.hot-button.cool,
+.hot-button.tepid {
+  color: rgb(255, 255, 255);
+}
+
+.hot-button.warm,
+.hot-button.hot {
+  color: rgb(70, 70, 70);
+}
+
+.click-count {
+  padding: 0.5rem 0;
+  text-align: center;
+}
+
+.hot-button.cold {
+  background-color: rgb(53, 28, 117);
+}
+
+.hot-button.cool {
+  background-color: rgb(103, 78, 167);
+}
+
+.hot-button.tepid {
+  background-color: rgb(224, 102, 102);
+}
+
+.hot-button.tepid:hover {
+  animation: shake 2s;
+  animation-iteration-count: infinite;
+}
+
+.hot-button.warm {
+  background-color: rgb(246, 178, 107);
+}
+
+.hot-button.warm:hover {
+  animation: shake 1.5s;
+  animation-iteration-count: infinite;
+}
+
+.hot-button.hot {
+  background-color: rgb(231, 231, 73);
+}
+
+.hot-button.hot:hover {
+  animation: shake 1s;
+  animation-iteration-count: infinite;
+}
+
+.hot-button.nuclear {
+  color: red;
+  border-color: red;
+  background-color: rgb(255, 255, 255);
+}
+
+.hot-button.nuclear:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
