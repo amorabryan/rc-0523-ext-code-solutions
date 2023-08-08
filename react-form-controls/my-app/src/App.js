@@ -6,10 +6,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Registration Form (Uncontrolled)</h1>
+        <h2>Registration Form (Uncontrolled)</h2>
         <RegistrationFormUncontrolled />
 
-        <h1>Registration Form (Controlled)</h1>
+        <h2>Registration Form (Controlled)</h2>
         <RegistrationFormControlled />
       </header>
     </div>
