@@ -1,5 +1,7 @@
+import { useState } from 'react';
+
 export default function RotatingBanner({ items }) {
-  const currentIndex = 0;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <div className="rotating-banner">
@@ -11,8 +13,8 @@ export default function RotatingBanner({ items }) {
   );
 }
 
-function Banner({ item }) {
-  return <div className="banner">{item}</div>;
+function Banner({ currentItem }) {
+  return <div className="banner">{currentItem}</div>;
 }
 
 function NextButton() {
