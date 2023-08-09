@@ -3,12 +3,30 @@ import { useState } from 'react';
 export default function RotatingBanner({ items }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  function handleNextClick() {
+    setCurrentIndex((previousIndex) => (previousIndex + 1) % items.length);
+  }
+
+  function handlePreviousClick() {
+    setCurrentIndex(
+      (previousIndex) => (previousIndex - 1 + items.length) % items.length
+    );
+  }
+
+  function handleIndicatorClick(index) {
+    setCurrentIndex(index);
+  }
+
   return (
     <div className="rotating-banner">
-      <Banner item={items[currentIndex]} />
-      <PreviousButton />
-      <Indicators currentIndex={currentIndex} items={items} />
-      <NextButton />
+      <Banner currentItem={items[currentIndex]} />
+      <PreviousButton onClick={handlePreviousClick} />
+      <Indicators
+        currentIndex={currentIndex}
+        items={items}
+        onClick={handleIndicatorClick}
+      />
+      <NextButton onClick={handleNextClick} />
     </div>
   );
 }
@@ -17,24 +35,39 @@ function Banner({ currentItem }) {
   return <div className="banner">{currentItem}</div>;
 }
 
-function NextButton() {
-  return <button className="next-button">Next</button>;
+function NextButton({ onClick }) {
+  function handleNextClick() {
+    onClick();
+  }
+  return (
+    <button className="next-button" onClick={handleNextClick}>
+      Next
+    </button>
+  );
 }
 
-function PreviousButton() {
-  return <button className="previous-button">Prev</button>;
+function PreviousButton({ onClick }) {
+  function handlePreviousClick() {
+    onClick();
+  }
+  return (
+    <button className="previous-button" onClick={handlePreviousClick}>
+      Prev
+    </button>
+  );
 }
 
-const Indicators = ({ currentIndex, items }) => {
+function Indicators({ currentIndex, items, onClick }) {
   return (
     <div className="indicators">
       {items.map((item, index) => (
         <button
           key={index}
-          className={`indicator ${index === currentIndex ? 'active' : ''}`}>
+          className={`indicator ${index === currentIndex ? 'active' : ''}`}
+          onClick={() => onClick(index)}>
           {index}
         </button>
       ))}
     </div>
   );
-};
+}
