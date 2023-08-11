@@ -1,0 +1,22 @@
+.language-tab {
+  width: 500px;
+  padding: 1rem;
+}
+
+.names {
+  width: 100%;
+  padding: 0.5rem 0;
+  text-align: start;
+  font-weight: bold;
+}
+
+.names:hover {
+  cursor: pointer;
+}
+
+p {
+  border: 1px solid black;
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
